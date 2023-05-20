@@ -7,8 +7,6 @@ function App() {
 
   const colors = ["red", "blue", "green", "yellow", "black"];
 
-
-  console.log(circles)
   const addCircle = () => {
     const id = Math.floor(Math.random() * colors.length);
     const posX = Math.floor(Math.random() * 1024);
@@ -26,6 +24,23 @@ function App() {
     <div className="App">
       <button onClick={() => addCircle()}>REDO</button>
       <button onClick={() => deleteCircle()}>UNDO</button>
+      <div className="container">
+        {circles.map((circle) => (
+          <div key={cirlce.id}>
+            <div
+              style={{
+                backgroundColor: circle.color,
+                borderRadius: "50%",
+                width: "10px",
+                height: "10px",
+                position: "absolute",
+                top: circle.posY,
+                left: circle.posX,
+              }}
+            ></div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
